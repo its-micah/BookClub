@@ -18,6 +18,10 @@
 		C74694B71ACC6EDD00958280 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694B61ACC6EDD00958280 /* Book.m */; };
 		C74694BA1ACC6EDE00958280 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694B91ACC6EDE00958280 /* Reader.m */; };
 		C74694BD1ACC6EDE00958280 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694BC1ACC6EDE00958280 /* Comment.m */; };
+		C74694C01ACC71D500958280 /* ReaderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694BF1ACC71D500958280 /* ReaderListViewController.m */; };
+		C74694C31ACC721B00958280 /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694C21ACC721B00958280 /* FriendDetailViewController.m */; };
+		C74694C61ACC73FA00958280 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694C51ACC73FA00958280 /* AddBookViewController.m */; };
+		C74694C91ACC755700958280 /* BookCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694C81ACC755700958280 /* BookCommentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		C74694B91ACC6EDE00958280 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
 		C74694BB1ACC6EDE00958280 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		C74694BC1ACC6EDE00958280 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		C74694BE1ACC71D500958280 /* ReaderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderListViewController.h; path = ../ReaderListViewController.h; sourceTree = "<group>"; };
+		C74694BF1ACC71D500958280 /* ReaderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderListViewController.m; path = ../ReaderListViewController.m; sourceTree = "<group>"; };
+		C74694C11ACC721B00958280 /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendDetailViewController.h; path = ../FriendDetailViewController.h; sourceTree = "<group>"; };
+		C74694C21ACC721B00958280 /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendDetailViewController.m; path = ../FriendDetailViewController.m; sourceTree = "<group>"; };
+		C74694C41ACC73FA00958280 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBookViewController.h; path = ../AddBookViewController.h; sourceTree = "<group>"; };
+		C74694C51ACC73FA00958280 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBookViewController.m; path = ../AddBookViewController.m; sourceTree = "<group>"; };
+		C74694C71ACC755700958280 /* BookCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookCommentsViewController.h; path = ../BookCommentsViewController.h; sourceTree = "<group>"; };
+		C74694C81ACC755700958280 /* BookCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookCommentsViewController.m; path = ../BookCommentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,14 @@
 				C74694911ACC6E2000958280 /* AppDelegate.m */,
 				C74694961ACC6E2100958280 /* ViewController.h */,
 				C74694971ACC6E2100958280 /* ViewController.m */,
+				C74694BE1ACC71D500958280 /* ReaderListViewController.h */,
+				C74694BF1ACC71D500958280 /* ReaderListViewController.m */,
+				C74694C11ACC721B00958280 /* FriendDetailViewController.h */,
+				C74694C21ACC721B00958280 /* FriendDetailViewController.m */,
+				C74694C41ACC73FA00958280 /* AddBookViewController.h */,
+				C74694C51ACC73FA00958280 /* AddBookViewController.m */,
+				C74694C71ACC755700958280 /* BookCommentsViewController.h */,
+				C74694C81ACC755700958280 /* BookCommentsViewController.m */,
 				C74694991ACC6E2100958280 /* Main.storyboard */,
 				C746949C1ACC6E2100958280 /* Images.xcassets */,
 				C746949E1ACC6E2100958280 /* LaunchScreen.xib */,
@@ -240,9 +260,13 @@
 				C74694BD1ACC6EDE00958280 /* Comment.m in Sources */,
 				C74694B71ACC6EDD00958280 /* Book.m in Sources */,
 				C74694921ACC6E2000958280 /* AppDelegate.m in Sources */,
+				C74694C61ACC73FA00958280 /* AddBookViewController.m in Sources */,
+				C74694C91ACC755700958280 /* BookCommentsViewController.m in Sources */,
 				C74694951ACC6E2100958280 /* BookClub.xcdatamodeld in Sources */,
+				C74694C31ACC721B00958280 /* FriendDetailViewController.m in Sources */,
 				C74694981ACC6E2100958280 /* ViewController.m in Sources */,
 				C74694BA1ACC6EDE00958280 /* Reader.m in Sources */,
+				C74694C01ACC71D500958280 /* ReaderListViewController.m in Sources */,
 				C746948F1ACC6E2000958280 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
