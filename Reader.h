@@ -2,7 +2,7 @@
 //  Reader.h
 //  BookClub
 //
-//  Created by Micah Lanier on 4/1/15.
+//  Created by Mick Lerche on 4/1/15.
 //  Copyright (c) 2015 Micah Lanier Design and Illustration. All rights reserved.
 //
 
@@ -13,8 +13,9 @@
 
 @interface Reader : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * image;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * friend;
 @property (nonatomic, retain) NSSet *books;
 @end
 

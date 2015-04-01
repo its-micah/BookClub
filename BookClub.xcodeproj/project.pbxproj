@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B513E231ACC7A0F00973A6C /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B513E221ACC7A0F00973A6C /* Reader.m */; };
 		C746948F1ACC6E2000958280 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C746948E1ACC6E2000958280 /* main.m */; };
 		C74694921ACC6E2000958280 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694911ACC6E2000958280 /* AppDelegate.m */; };
 		C74694951ACC6E2100958280 /* BookClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C74694931ACC6E2100958280 /* BookClub.xcdatamodeld */; };
@@ -16,7 +17,6 @@
 		C74694A01ACC6E2100958280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C746949E1ACC6E2100958280 /* LaunchScreen.xib */; };
 		C74694AC1ACC6E2100958280 /* BookClubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694AB1ACC6E2100958280 /* BookClubTests.m */; };
 		C74694B71ACC6EDD00958280 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694B61ACC6EDD00958280 /* Book.m */; };
-		C74694BA1ACC6EDE00958280 /* Reader.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694B91ACC6EDE00958280 /* Reader.m */; };
 		C74694BD1ACC6EDE00958280 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694BC1ACC6EDE00958280 /* Comment.m */; };
 		C74694C01ACC71D500958280 /* ReaderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694BF1ACC71D500958280 /* ReaderListViewController.m */; };
 		C74694C31ACC721B00958280 /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74694C21ACC721B00958280 /* FriendDetailViewController.m */; };
@@ -35,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B513E211ACC7A0F00973A6C /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reader.h; path = ../Reader.h; sourceTree = "<group>"; };
+		6B513E221ACC7A0F00973A6C /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reader.m; path = ../Reader.m; sourceTree = "<group>"; };
 		C74694891ACC6E2000958280 /* BookClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C746948D1ACC6E2000958280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C746948E1ACC6E2000958280 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,8 +53,6 @@
 		C74694AB1ACC6E2100958280 /* BookClubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookClubTests.m; sourceTree = "<group>"; };
 		C74694B51ACC6EDD00958280 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		C74694B61ACC6EDD00958280 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		C74694B81ACC6EDE00958280 /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader.h; sourceTree = "<group>"; };
-		C74694B91ACC6EDE00958280 /* Reader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reader.m; sourceTree = "<group>"; };
 		C74694BB1ACC6EDE00958280 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		C74694BC1ACC6EDE00958280 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		C74694BE1ACC71D500958280 /* ReaderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReaderListViewController.h; path = ../ReaderListViewController.h; sourceTree = "<group>"; };
@@ -120,10 +120,10 @@
 				C746949C1ACC6E2100958280 /* Images.xcassets */,
 				C746949E1ACC6E2100958280 /* LaunchScreen.xib */,
 				C74694931ACC6E2100958280 /* BookClub.xcdatamodeld */,
+				6B513E211ACC7A0F00973A6C /* Reader.h */,
+				6B513E221ACC7A0F00973A6C /* Reader.m */,
 				C74694BB1ACC6EDE00958280 /* Comment.h */,
 				C74694BC1ACC6EDE00958280 /* Comment.m */,
-				C74694B81ACC6EDE00958280 /* Reader.h */,
-				C74694B91ACC6EDE00958280 /* Reader.m */,
 				C74694B51ACC6EDD00958280 /* Book.h */,
 				C74694B61ACC6EDD00958280 /* Book.m */,
 				C746948C1ACC6E2000958280 /* Supporting Files */,
@@ -261,11 +261,11 @@
 				C74694B71ACC6EDD00958280 /* Book.m in Sources */,
 				C74694921ACC6E2000958280 /* AppDelegate.m in Sources */,
 				C74694C61ACC73FA00958280 /* AddBookViewController.m in Sources */,
+				6B513E231ACC7A0F00973A6C /* Reader.m in Sources */,
 				C74694C91ACC755700958280 /* BookCommentsViewController.m in Sources */,
 				C74694951ACC6E2100958280 /* BookClub.xcdatamodeld in Sources */,
 				C74694C31ACC721B00958280 /* FriendDetailViewController.m in Sources */,
 				C74694981ACC6E2100958280 /* ViewController.m in Sources */,
-				C74694BA1ACC6EDE00958280 /* Reader.m in Sources */,
 				C74694C01ACC71D500958280 /* ReaderListViewController.m in Sources */,
 				C746948F1ACC6E2000958280 /* main.m in Sources */,
 			);
@@ -458,6 +458,7 @@
 				C74694B11ACC6E2100958280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C74694B21ACC6E2100958280 /* Build configuration list for PBXNativeTarget "BookClubTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +467,7 @@
 				C74694B41ACC6E2100958280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

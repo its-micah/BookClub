@@ -2,7 +2,7 @@
 //  Reader.m
 //  BookClub
 //
-//  Created by Micah Lanier on 4/1/15.
+//  Created by Mick Lerche on 4/1/15.
 //  Copyright (c) 2015 Micah Lanier Design and Illustration. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 
 @implementation Reader
 
-@dynamic name;
 @dynamic image;
+@dynamic name;
+@dynamic friend;
 @dynamic books;
 
 @end
