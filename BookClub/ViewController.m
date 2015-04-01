@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Reader.h"
 #import "ReaderListViewController.h"
+#import "FriendDetailViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -18,6 +19,7 @@
 @property NSArray *friends;
 @property BOOL isFiltered;
 @property NSMutableArray *searchResults;
+@property NSIndexPath *readerPath;
 
 @end
 
@@ -28,7 +30,6 @@
 
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.moc = appdelegate.managedObjectContext;
-
 
 }
 
@@ -75,14 +76,21 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.readerPath = indexPath;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
         ReaderListViewController *readerVC = segue.destinationViewController;
         readerVC.moc = self.moc;
-        //readerVC.readersArray = self.friends;
+    } else if ([segue.identifier isEqualToString:@"FriendDetailSegue"]) {
+        FriendDetailViewController *friendVC = segue.destinationViewController;
+        friendVC.reader = self.friends[self.readerPath.row];
+        friendVC.moc = self.moc;
+        NSLog(@"%@", friendVC.reader);
     }
-
 
 }
 

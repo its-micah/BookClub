@@ -12,5 +12,6 @@
 @interface FriendDetailViewController : ViewController
 
 @property Reader *reader;
+@property NSManagedObjectContext *moc;
 
 @end
