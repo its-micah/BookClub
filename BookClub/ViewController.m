@@ -39,6 +39,8 @@
 - (void)load {
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Reader class])];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friend == YES"];
+    request.predicate = predicate;
     self.friends = [self.moc executeFetchRequest:request error:nil];
     [self.friendsTableView reloadData];
 }
@@ -78,6 +80,7 @@
     if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
         ReaderListViewController *readerVC = segue.destinationViewController;
         readerVC.moc = self.moc;
+        //readerVC.readersArray = self.friends;
     }
 
 

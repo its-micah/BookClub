@@ -10,8 +10,8 @@
 #import "Reader.h"
 
 @interface ReaderListViewController () <UITableViewDataSource, UITableViewDelegate>
-@property NSArray *readersArray;
 @property (strong, nonatomic) IBOutlet UITableView *readersTableView;
+@property NSArray *readersArray;
 
 @end
 
@@ -19,14 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Reader class])];
+    self.readersArray = [self.moc executeFetchRequest:request error:nil];
 
-    self.readersTableView.delegate = self;
-
-    [Reader retrieveReaders:self.moc WithCompletion:^(NSArray *readers) {
-        self.readersArray = readers;
-        [self.readersTableView reloadData];
-    }];
-
+    if (self.readersArray.count == 0) {
+        [Reader retrieveReaders:self.moc WithCompletion:^(NSArray *readers) {
+            self.readersArray = readers;
+            [self.readersTableView reloadData];
+        }];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -52,6 +53,10 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
     Reader *reader = self.readersArray[indexPath.row];
     cell.textLabel.text = reader.name;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    if (reader.friend) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     return cell;
 }
 
