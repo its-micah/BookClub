@@ -7,8 +7,16 @@
 //
 
 #import "FriendDetailViewController.h"
+#import "Reader.h"
 
 @interface FriendDetailViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property NSArray *books;
+@property (weak, nonatomic) IBOutlet UITableView *booksTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *readerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfBooksLabel;
+
 
 @end
 
@@ -25,7 +33,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //xx.count;
+    return self.books.count; //xx.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

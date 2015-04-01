@@ -7,8 +7,17 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
+#import "Reader.h"
+#import "ReaderListViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
+@property NSManagedObjectContext *moc;
+@property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
+@property NSArray *friends;
+@property BOOL isFiltered;
+@property NSMutableArray *searchResults;
 
 @end
 
@@ -16,16 +25,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+    self.moc = appdelegate.managedObjectContext;
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)load {
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Reader class])];
+    self.friends = [self.moc executeFetchRequest:request error:nil];
+    [self.friendsTableView reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if(searchText.length == 0)
+    {
+        self.isFiltered = FALSE;
+    } else {
+        self.isFiltered = true;
+        self.searchResults = [[NSMutableArray alloc] init];
+        for (Reader *reader in self.friends) {
+            NSRange stopNameRange = [reader.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (stopNameRange.location != NSNotFound) {
+                [self.searchResults addObject:reader];
+            }
+        }
+    }
+
+    [self.friendsTableView reloadData];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //xx.count;
+    return self.friends.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -33,4 +66,16 @@
 
     return cell;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
+        ReaderListViewController *readerVC = segue.destinationViewController;
+        //readerVC.moc = self.moc;
+    }
+
+
+}
+
+
 @end
