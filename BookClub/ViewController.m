@@ -29,6 +29,8 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.moc = appdelegate.managedObjectContext;
 
+    [self load];
+
 }
 
 - (void)load {
@@ -63,7 +65,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
-
+    Reader *reader = self.friends[indexPath.row];
+    cell.textLabel.text = reader.name;
     return cell;
 }
 
@@ -71,11 +74,12 @@
 
     if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
         ReaderListViewController *readerVC = segue.destinationViewController;
-        //readerVC.moc = self.moc;
+        readerVC.moc = self.moc;
     }
 
 
 }
+
 
 
 @end

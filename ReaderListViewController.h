@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ReaderListViewController : ViewController
-
+@property NSManagedObjectContext *moc;
 @end

@@ -11,6 +11,8 @@
 
 @interface ReaderListViewController () <UITableViewDataSource, UITableViewDelegate>
 @property NSArray *readersArray;
+@property (strong, nonatomic) IBOutlet UITableView *readersTableView;
+
 @end
 
 @implementation ReaderListViewController
@@ -18,12 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [Reader retrieveReadersWithCompletion:^(NSArray *readers) {
+//    [Reader retrieveReaders       WithCompletion:^(NSArray *readers) {
+//        self.readersArray = readers;
+//    }];
+//
+    [Reader retrieveReaders:self.moc WithCompletion:^(NSArray *readers) {
         self.readersArray = readers;
+        [self.readersTableView reloadData];
     }];
-
-
-
 
 }
 
@@ -33,14 +37,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //xx.count;
+    return self.readersArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
-
+    Reader *reader = self.readersArray[indexPath.row];
+    cell.textLabel.text = reader.name;
     return cell;
 }
+
+- (IBAction)dismissModalView:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.moc save:nil];
+    }];
+}
+
 /*
 #pragma mark - Navigation
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -150,7 +150,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="People" id="7Yc-KI-f0v">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="6x6-fG-rbU"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="6x6-fG-rbU">
+                                            <connections>
+                                                <action selector="dismissModalView:" destination="W15-ws-I5x" id="VdT-0u-VwJ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <variation key="default">
@@ -206,6 +210,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="readersTableView" destination="vut-Sd-pJh" id="TiC-UU-oMP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPQ-26-sNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
