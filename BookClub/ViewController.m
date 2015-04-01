@@ -29,8 +29,11 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.moc = appdelegate.managedObjectContext;
 
-    [self load];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self load];
 }
 
 - (void)load {

@@ -20,10 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    [Reader retrieveReaders       WithCompletion:^(NSArray *readers) {
-//        self.readersArray = readers;
-//    }];
-//
+    self.readersTableView.delegate = self;
+
     [Reader retrieveReaders:self.moc WithCompletion:^(NSArray *readers) {
         self.readersArray = readers;
         [self.readersTableView reloadData];
@@ -31,9 +29,19 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    Reader *reader = self.readersArray[indexPath.row];
+    reader.friend = !reader.friend;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    if (reader.friend) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+
+    [self.moc save:nil];
+    [self.readersTableView reloadData];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

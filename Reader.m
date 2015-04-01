@@ -31,6 +31,8 @@
 
     Reader * reader = (Reader *)[NSEntityDescription insertNewObjectForEntityForName:@"Reader" inManagedObjectContext:context];
     reader.name = name;
+    reader.friend = 0;
+    reader.image = @"";
 
     return reader;
 }
