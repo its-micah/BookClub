@@ -7,16 +7,24 @@
 //
 
 #import "ReaderListViewController.h"
+#import "Reader.h"
 
 @interface ReaderListViewController () <UITableViewDataSource, UITableViewDelegate>
-
+@property NSArray *readersArray;
 @end
 
 @implementation ReaderListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [Reader retrieveReadersWithCompletion:^(NSArray *readers) {
+        self.readersArray = readers;
+    }];
+
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {

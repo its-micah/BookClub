@@ -8,6 +8,7 @@
 
 #import "Reader.h"
 #import "Book.h"
+#import "AppDelegate.h"
 
 
 @implementation Reader
@@ -17,4 +18,59 @@
 @dynamic friend;
 @dynamic books;
 
+//-(instancetype)initWithName:(NSString *)name {
+//    self = [super init];
+//    if (self) {
+//        self.name = name;
+//    }
+//
+//    return self;
+//}
+
++ (Reader *)readerWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context {
+
+    Reader * reader = (Reader *)[NSEntityDescription insertNewObjectForEntityForName:@"Reader" inManagedObjectContext:context];
+    reader.name = name;
+
+    return reader;
+}
+
+
++ (void)retrieveReaders:(NSManagedObjectContext *)moc WithCompletion:(void (^)(NSArray *readers))complete {
+    NSURL *url = [NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               NSMutableArray *readers = [NSMutableArray new];
+
+                               NSArray *readerNames = [NSJSONSerialization JSONObjectWithData:data
+                                                                                options:NSJSONReadingAllowFragments
+                                                                                  error:&connectionError];
+
+
+                               for (NSString *readerName in readerNames) {
+                                   Reader *reader = [Reader readerWithName:readerName inManagedObjectContext:moc];
+                                   [readers addObject:reader];
+                               }
+                               complete(readers);
+                           }];
+}
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+

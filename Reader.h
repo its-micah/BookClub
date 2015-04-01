@@ -26,4 +26,8 @@
 - (void)addBooks:(NSSet *)values;
 - (void)removeBooks:(NSSet *)values;
 
++ (void)retrieveReaders:(NSManagedObjectContext *)moc WithCompletion:(void (^)(NSArray *readers))complete;
++ (void)retrieveReadersWithCompletion:(void (^)(NSArray *readers))complete;
+
+
 @end
