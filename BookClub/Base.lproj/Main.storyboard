@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -102,10 +102,13 @@
                     <navigationItem key="navigationItem" title="Friends" id="ZwZ-DL-zM7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oQY-GU-QoM">
                             <connections>
-                                <segue destination="W15-ws-I5x" kind="presentation" id="o0P-Ys-kMG"/>
+                                <segue destination="W15-ws-I5x" kind="presentation" identifier="ShowReaderListSegue" id="o0P-Ys-kMG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="friendsTableView" destination="z0v-rS-cUf" id="Qny-Hn-c6K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,6 +370,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="booksTableView" destination="VVh-oj-wyv" id="leE-tC-k8Q"/>
+                        <outlet property="nameLabel" destination="3kv-CQ-cqZ" id="TuJ-iY-eLr"/>
+                        <outlet property="numberOfBooksLabel" destination="5fx-P6-NeX" id="2oo-tx-dcn"/>
+                        <outlet property="readerImageView" destination="JzH-vy-Epa" id="RJl-sP-aim"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJg-T7-P7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

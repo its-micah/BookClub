@@ -7,7 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "Reader.h"
 
 @interface FriendDetailViewController : ViewController
+
+@property Reader *reader;
 
 @end
