@@ -18,14 +18,7 @@
 @dynamic friend;
 @dynamic books;
 
-//-(instancetype)initWithName:(NSString *)name {
-//    self = [super init];
-//    if (self) {
-//        self.name = name;
-//    }
-//
-//    return self;
-//}
+
 
 + (Reader *)readerWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context {
 

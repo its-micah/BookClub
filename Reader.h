@@ -28,6 +28,5 @@
 
 + (void)retrieveReaders:(NSManagedObjectContext *)moc WithCompletion:(void (^)(NSArray *readers))complete;
 + (void)retrieveReadersWithCompletion:(void (^)(NSArray *readers))complete;
-//- (void)initWith
 
 @end

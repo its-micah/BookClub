@@ -46,8 +46,9 @@
 }
 
 - (void)load {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
-    self.books = [self.moc executeFetchRequest:request error:nil];
+    self.books = [self.reader.books allObjects];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
+//    self.books = [self.moc executeFetchRequest:request error:nil];
     [self.booksTableView reloadData];
 }
 

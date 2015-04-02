@@ -12,6 +12,9 @@
 
 @interface BookCommentsViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
+@property NSArray *commentsArray;
+@property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
+
 @end
 
 @implementation BookCommentsViewController
@@ -19,9 +22,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-
+    self.commentsArray = [NSMutableArray new];
+    [self loadComments];
 }
+
+- (void)loadComments {
+//    if (self.raid) {
+//        self.adventurers = [self.raid.adventurers allObjects];
+//        [self.tableView reloadData];
+//        return;
+//    }
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Comment class])];
+    self.commentsArray = [self.moc executeFetchRequest:request error:nil];
+    [self.commentsTableView reloadData];
+}
+
+
 
 - (IBAction)createCommentAlert:(id)sender {
     UIAlertController *commentController = [UIAlertController alertControllerWithTitle:@"Add comment" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -39,6 +55,7 @@
                                    Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Comment class]) inManagedObjectContext:self.moc];
                                    comment.comment = textField.text;
                                    [self.moc save:nil];
+                                   [self loadComments];
                                }];
 
     UIAlertAction *cancelAction = [UIAlertAction
@@ -58,12 +75,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //xx.count;
+    return self.commentsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
-
+    Comment *comment = self.commentsArray[indexPath.row];
+    cell.textLabel.text = comment.comment;
     return cell;
 }
 
