@@ -10,7 +10,7 @@
 #import "Book.h"
 #import "Reader.h"
 
-@interface AddBookViewController () <UIImagePickerControllerDelegate>
+@interface AddBookViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property IBOutlet UITextField *titleTextField;
 @property IBOutlet UITextField *authorTextField;
 @property NSString *image;
@@ -35,9 +35,7 @@
     [self.reader addBooksObject:book];
 
     [self.moc save:nil];
-    [self dismissViewControllerAnimated:YES completion:^{
-        nil;
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onSelectPictureButtonPressed:(id)sender {
@@ -50,9 +48,7 @@
 
 }
 - (IBAction)onCancelButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        nil;
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

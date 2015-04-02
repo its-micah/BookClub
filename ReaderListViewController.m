@@ -33,10 +33,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     Reader *reader = self.readersArray[indexPath.row];
-    reader.friend = !reader.friend;
+    reader.friend = [NSNumber numberWithBool:!reader.friend.boolValue];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
-    if (reader.friend) {
+    if (reader.friend.boolValue) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
 
@@ -56,7 +56,7 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
 
-    if (reader.friend) {
+    if (reader.friend.boolValue) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     return cell;
