@@ -109,11 +109,6 @@
 }
 
 - (void)callFriendDetailViewControllerForReader:(Reader *)reader {
-
-    NSIndexPath *selectedIndexPath = [self.friendsTableView indexPathForSelectedRow];
-
-
-
     FriendDetailViewController *friendVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailViewController"];
     friendVC.reader = reader;
     friendVC.moc = self.moc;

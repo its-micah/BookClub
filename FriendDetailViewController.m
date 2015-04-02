@@ -33,21 +33,22 @@
     self.readerImageView.layer.cornerRadius = 75;
     self.nameLabel.text = self.reader.name;
     self.readerImageView.image = [UIImage imageNamed:self.reader.name];
-    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.books.count];
 
-    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
-                                               inManagedObjectContext:self.moc];
+    [self load];
+}
 
-    book.title = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-    book.author = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-   // book.title = @""; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-    [self.moc save:nil];
+- (void)viewWillAppear:(BOOL)animated {
     [self load];
 }
 
 - (void)load {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
-    self.books = [self.moc executeFetchRequest:request error:nil];
+
+    self.books = [self.reader.books allObjects];
+
+
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
+//    self.books = [self.moc executeFetchRequest:request error:nil];
+    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.books.count];
     [self.booksTableView reloadData];
 }
 
@@ -66,6 +67,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AddBookViewController *addVC = segue.destinationViewController;
     addVC.moc = self.moc;
+    addVC.reader = self.reader;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
