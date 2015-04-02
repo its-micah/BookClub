@@ -28,9 +28,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aox-bN-QkQ" id="227-Wf-sbs">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="xye-fq-Cbr" kind="show" identifier="FriendDetailSegue" id="pLN-xl-xJc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -108,6 +105,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="friendsTableView" destination="z0v-rS-cUf" id="Qny-Hn-c6K"/>
+                        <outlet property="searchBar" destination="8mc-QW-E1j" id="gIf-E7-nZz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -221,7 +219,7 @@
         <!--Friend-->
         <scene sceneID="IAP-Uy-dAl">
             <objects>
-                <viewController id="xye-fq-Cbr" customClass="FriendDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendDetailViewController" id="xye-fq-Cbr" customClass="FriendDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rwu-NW-BLO"/>
                         <viewControllerLayoutGuide type="bottom" id="i0o-1h-tlo"/>
@@ -245,12 +243,15 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="252" width="400" height="348"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="xye-fq-Cbr" id="Htp-Y6-OUv"/>
                                     <outlet property="delegate" destination="xye-fq-Cbr" id="fDA-4p-Vuf"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JzH-vy-Epa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JzH-vy-Epa">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Qcb-SU-IYc"/>
@@ -272,7 +273,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kv-CQ-cqZ">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="Q7b-5d-7KI"/>
+                                    <constraint firstAttribute="width" constant="73" id="Q7b-5d-7KI">
+                                        <variation key="widthClass=compact" constant="148"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="21" id="ki6-ps-BNm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -322,12 +325,16 @@
                             <constraint firstItem="VVh-oj-wyv" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="153" id="Xd2-Wk-7ai">
                                 <variation key="widthClass=compact" constant="188"/>
                             </constraint>
-                            <constraint firstItem="3kv-CQ-cqZ" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="60" id="acX-t9-Qm8"/>
+                            <constraint firstItem="3kv-CQ-cqZ" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="60" id="acX-t9-Qm8">
+                                <variation key="widthClass=compact" constant="104"/>
+                            </constraint>
                             <constraint firstItem="VVh-oj-wyv" firstAttribute="leading" secondItem="iL3-pB-erx" secondAttribute="leadingMargin" constant="-16" id="jQF-gm-BPy"/>
                             <constraint firstItem="3kv-CQ-cqZ" firstAttribute="leading" secondItem="JzH-vy-Epa" secondAttribute="trailing" constant="34" id="jz9-1a-Thg"/>
                             <constraint firstItem="i0o-1h-tlo" firstAttribute="top" secondItem="VVh-oj-wyv" secondAttribute="bottom" id="sq6-lj-gjr"/>
                             <constraint firstItem="5fx-P6-NeX" firstAttribute="leading" secondItem="JzH-vy-Epa" secondAttribute="trailing" constant="34" id="v4o-p3-JOh"/>
-                            <constraint firstItem="JzH-vy-Epa" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="19" id="vI6-V7-NvR"/>
+                            <constraint firstItem="JzH-vy-Epa" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="19" id="vI6-V7-NvR">
+                                <variation key="widthClass=compact" constant="63"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -412,6 +419,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="246" width="400" height="354"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="CBf-cP-aQf" id="RmH-Ro-cnR"/>
                                     <outlet property="delegate" destination="CBf-cP-aQf" id="PYk-ak-SGi"/>
@@ -429,7 +439,8 @@
                                         <exclude reference="hvO-GU-pp9"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="83" width="150" height="150"/>
                                     <mask key="constraints">
                                         <include reference="3AS-5i-S9w"/>
                                         <include reference="hvO-GU-pp9"/>
@@ -451,7 +462,8 @@
                                         <exclude reference="rjq-bB-bAV"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="211" y="125" width="125" height="21"/>
                                     <mask key="constraints">
                                         <include reference="epc-EE-FGl"/>
                                         <include reference="rjq-bB-bAV"/>
@@ -473,7 +485,8 @@
                                         <exclude reference="d9w-Sr-Ep1"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="211" y="164" width="125" height="21"/>
                                     <mask key="constraints">
                                         <include reference="KYO-Qq-hbC"/>
                                         <include reference="d9w-Sr-Ep1"/>
@@ -549,7 +562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mB-So-umM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="1869"/>
+            <point key="canvasLocation" x="2094" y="1913"/>
         </scene>
         <!--Add Book View Controller-->
         <scene sceneID="kUq-BH-hhr">
@@ -733,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYh-i8-FMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="956"/>
+            <point key="canvasLocation" x="2523" y="1154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bma-RD-qHM">

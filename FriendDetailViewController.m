@@ -24,9 +24,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.readerImageView.layer.masksToBounds = YES;
+    self.readerImageView.layer.cornerRadius = 75;
     self.nameLabel.text = self.reader.name;
-
+    self.readerImageView.image = [UIImage imageNamed:self.reader.name];
 }
+
+//- (void)viewWillAppear:(BOOL)animated {
+//    self.nameLabel.text = self.reader.name;
+//
+//}
 
 
 

@@ -20,6 +20,7 @@
 @property BOOL isFiltered;
 @property NSMutableArray *searchResults;
 @property NSIndexPath *readerPath;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,11 +31,18 @@
 
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     self.moc = appdelegate.managedObjectContext;
-
+    self.searchBar.delegate = self;
+    self.isFiltered = NO;
+    self.searchResults = [NSMutableArray new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self load];
+    NSArray *orderedArray = [NSArray new];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *sortedArray = [self.friends sortedArrayUsingDescriptors:@[sortDescriptor]];
+    orderedArray = [NSArray arrayWithArray:sortedArray];
+    [self.friendsTableView reloadData];
 }
 
 - (void)load {
@@ -47,8 +55,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if(searchText.length == 0)
-    {
+    if(searchText.length == 0) {
         self.isFiltered = FALSE;
     } else {
         self.isFiltered = true;
@@ -66,18 +73,49 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.friends.count;
+
+    if (self.isFiltered) {
+        return self.searchResults.count;
+    } else {
+        return self.friends.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
-    Reader *reader = self.friends[indexPath.row];
-    cell.textLabel.text = reader.name;
-    return cell;
+    if (self.isFiltered) {
+        Reader *reader = self.searchResults[indexPath.row];
+        cell.textLabel.text = reader.name;
+        cell.imageView.image = [UIImage imageNamed:reader.name];
+        return cell;
+    } else {
+        Reader *reader = self.friends[indexPath.row];
+        cell.textLabel.text = reader.name;
+        cell.imageView.image = [UIImage imageNamed:reader.name];
+        return cell;
+    }
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.readerPath = indexPath;
+
+    if (self.isFiltered) {
+        Reader *reader = self.searchResults[indexPath.row];
+        [self callFriendDetailViewControllerForReader:reader];
+    } else {
+        Reader *reader = self.friends[indexPath.row];
+        [self callFriendDetailViewControllerForReader:reader];
+    }
+}
+
+- (void)callFriendDetailViewControllerForReader:(Reader *)reader {
+    FriendDetailViewController *friendVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailViewController"];
+    friendVC.reader = reader;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:friendVC];
+    navVC.title = reader.name;
+    navVC.navigationItem.rightBarButtonItem = UIBarButtonItemStylePlain;
+    [self showViewController:friendVC sender:nil];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -85,11 +123,6 @@
     if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
         ReaderListViewController *readerVC = segue.destinationViewController;
         readerVC.moc = self.moc;
-    } else if ([segue.identifier isEqualToString:@"FriendDetailSegue"]) {
-        FriendDetailViewController *friendVC = segue.destinationViewController;
-        friendVC.reader = self.friends[self.readerPath.row];
-        friendVC.moc = self.moc;
-        NSLog(@"%@", friendVC.reader);
     }
 
 }
