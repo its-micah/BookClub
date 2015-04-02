@@ -39,16 +39,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self load];
+    [self.booksTableView reloadData];
 }
 
 - (void)load {
-
     self.books = [self.reader.books allObjects];
-
-
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
-//    self.books = [self.moc executeFetchRequest:request error:nil];
-    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.books.count];
     [self.booksTableView reloadData];
 }
 
@@ -80,6 +75,9 @@
     BookCommentsViewController *bookVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BookCommentsViewController"];
     bookVC.book = book;
     bookVC.moc = self.moc;
+    bookVC.navigationItem.title = book.title;
+
+    [self showViewController:bookVC sender:nil];
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -317,7 +317,7 @@
                             <constraint firstItem="5fx-P6-NeX" firstAttribute="top" secondItem="3kv-CQ-cqZ" secondAttribute="bottom" constant="31" id="Kl3-8s-BQe"/>
                             <constraint firstItem="JzH-vy-Epa" firstAttribute="leading" secondItem="iL3-pB-erx" secondAttribute="leadingMargin" constant="18" id="TzD-To-3k5"/>
                             <constraint firstItem="VVh-oj-wyv" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="153" id="Xd2-Wk-7ai">
-                                <variation key="widthClass=compact" constant="188"/>
+                                <variation key="widthClass=compact" constant="221"/>
                             </constraint>
                             <constraint firstItem="3kv-CQ-cqZ" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="60" id="acX-t9-Qm8">
                                 <variation key="widthClass=compact" constant="104"/>
@@ -545,8 +545,15 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="dZa-Vj-Yiq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="A5N-K1-vME"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="A5N-K1-vME">
+                            <connections>
+                                <action selector="createCommentAlert:" destination="CBf-cP-aQf" id="1HW-oX-fSl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="commentsTableView" destination="cRm-eb-sjk" id="Y4t-ST-oY0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mB-So-umM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -716,18 +723,18 @@
                                 <exclude reference="xK4-zU-54B"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2iK-xn-dEE"/>
-                                <exclude reference="IIY-YT-Eyy"/>
-                                <exclude reference="VLf-1f-NZV"/>
                                 <exclude reference="IKK-5M-Bqp"/>
                                 <exclude reference="JdH-8Y-TUB"/>
                                 <exclude reference="Qat-xA-Xp0"/>
                                 <exclude reference="fkS-PQ-bb7"/>
+                                <exclude reference="KD2-x8-guW"/>
+                                <exclude reference="XhO-xd-BmT"/>
+                                <exclude reference="2iK-xn-dEE"/>
+                                <exclude reference="IIY-YT-Eyy"/>
+                                <exclude reference="VLf-1f-NZV"/>
                                 <exclude reference="fFg-vD-zH2"/>
                                 <exclude reference="lDk-tE-FNK"/>
                                 <exclude reference="yai-cf-KR2"/>
-                                <exclude reference="KD2-x8-guW"/>
-                                <exclude reference="XhO-xd-BmT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -739,18 +746,18 @@
                                 <include reference="xK4-zU-54B"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2iK-xn-dEE"/>
-                                <include reference="IIY-YT-Eyy"/>
-                                <include reference="VLf-1f-NZV"/>
                                 <include reference="IKK-5M-Bqp"/>
                                 <include reference="JdH-8Y-TUB"/>
                                 <include reference="Qat-xA-Xp0"/>
                                 <include reference="fkS-PQ-bb7"/>
+                                <include reference="KD2-x8-guW"/>
+                                <include reference="XhO-xd-BmT"/>
+                                <include reference="2iK-xn-dEE"/>
+                                <include reference="IIY-YT-Eyy"/>
+                                <include reference="VLf-1f-NZV"/>
                                 <exclude reference="fFg-vD-zH2"/>
                                 <include reference="lDk-tE-FNK"/>
                                 <include reference="yai-cf-KR2"/>
-                                <include reference="KD2-x8-guW"/>
-                                <include reference="XhO-xd-BmT"/>
                             </mask>
                         </variation>
                     </view>
