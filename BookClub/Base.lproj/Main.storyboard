@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AjR-wm-zt9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -22,12 +22,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" rowHeight="79" id="aox-bN-QkQ">
+                                    <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" rowHeight="79" id="aox-bN-QkQ">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aox-bN-QkQ" id="227-Wf-sbs">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xye-fq-Cbr" kind="show" id="nAj-dI-Ikc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -98,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="ZwZ-DL-zM7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oQY-GU-QoM">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="W15-ws-I5x" kind="presentation" identifier="ShowReaderListSegue" id="o0P-Ys-kMG"/>
                             </connections>
@@ -146,9 +150,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="esh-T3-k6F"/>
                                 </constraints>
+                                <color key="barTintColor" red="1" green="0.31764705882352939" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="People" id="7Yc-KI-f0v">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="6x6-fG-rbU">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="dismissModalView:" destination="W15-ws-I5x" id="VdT-0u-VwJ"/>
                                             </connections>
@@ -240,6 +250,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="241" width="400" height="359"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="xye-fq-Cbr" id="Htp-Y6-OUv"/>
                                     <outlet property="delegate" destination="xye-fq-Cbr" id="fDA-4p-Vuf"/>
@@ -257,7 +270,8 @@
                                         <exclude reference="oJw-V0-wih"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="34" y="83" width="150" height="150"/>
                                     <mask key="constraints">
                                         <include reference="Qcb-SU-IYc"/>
                                         <include reference="oJw-V0-wih"/>
@@ -272,7 +286,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="21" id="ki6-ps-BNm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -281,7 +295,8 @@
                                         <exclude reference="ki6-ps-BNm"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="218" y="124" width="148" height="21"/>
                                     <mask key="constraints">
                                         <include reference="Q7b-5d-7KI"/>
                                         <include reference="ki6-ps-BNm"/>
@@ -294,7 +309,7 @@
                                     <constraint firstAttribute="width" constant="131" id="iqx-OS-xnp"/>
                                     <constraint firstAttribute="height" constant="21" id="nJi-wK-pD7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -303,7 +318,8 @@
                                         <exclude reference="nJi-wK-pD7"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="218" y="176" width="131" height="21"/>
                                     <mask key="constraints">
                                         <include reference="iqx-OS-xnp"/>
                                         <include reference="nJi-wK-pD7"/>
@@ -373,6 +389,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friend" id="IFz-kl-wCT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BbE-4N-9bu">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="M1h-Hf-9yg" kind="presentation" identifier="AddBookComment" id="Nc7-8f-Ctr"/>
                             </connections>
@@ -443,7 +460,7 @@
                                     <constraint firstAttribute="height" constant="21" id="epc-EE-FGl"/>
                                     <constraint firstAttribute="width" constant="125" id="rjq-bB-bAV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -465,7 +482,7 @@
                                     <constraint firstAttribute="height" constant="21" id="KYO-Qq-hbC"/>
                                     <constraint firstAttribute="width" constant="125" id="d9w-Sr-Ep1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -640,14 +657,21 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Vf3-em-Ho3"/>
                                 </constraints>
+                                <color key="barTintColor" red="1" green="0.31764705882352939" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Add Book" id="hF9-gv-fr7">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="L3e-Sw-xZU">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="onCancelButtonPressed:" destination="M1h-Hf-9yg" id="SWn-Oj-hNJ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hk3-QN-8pq">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="onSaveButtonPressed:" destination="M1h-Hf-9yg" id="Q2r-Nt-lNw"/>
                                             </connections>
@@ -671,8 +695,9 @@
                                     <constraint firstAttribute="width" constant="99" id="03G-E6-QJP"/>
                                     <constraint firstAttribute="height" constant="30" id="IiV-bP-hPF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
                                 <state key="normal" title="Choose image">
+                                    <color key="titleColor" red="1" green="0.31764705879999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -782,6 +807,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nhf-uh-bww">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.31764705882352939" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

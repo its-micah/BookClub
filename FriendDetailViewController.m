@@ -39,7 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self load];
-    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.books.count];
+    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu book(s)", (unsigned long)self.books.count];
     [self.booksTableView reloadData];
 }
 
@@ -56,6 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
     Book *book = self.books[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
     cell.textLabel.text = book.title;
     return cell;
 }

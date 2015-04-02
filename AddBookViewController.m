@@ -35,7 +35,7 @@
     [self.reader addBooksObject:book];
 
     [self.moc save:nil];
-
+    
     [Book writeImageToDisk:self.imageView.image withFileName:[NSString stringWithFormat:@"%@.png", book.title]];
 
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -51,9 +51,7 @@
 
 }
 - (IBAction)onCancelButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        nil;
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
