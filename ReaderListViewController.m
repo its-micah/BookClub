@@ -54,6 +54,8 @@
     Reader *reader = self.readersArray[indexPath.row];
     cell.textLabel.text = reader.name;
     cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
+
     if (reader.friend) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }

@@ -86,16 +86,19 @@
     if (self.isFiltered) {
         Reader *reader = self.searchResults[indexPath.row];
         cell.imageView.layer.masksToBounds = YES;
-        cell.imageView.layer.cornerRadius = 36.0;
+        cell.imageView.layer.cornerRadius = 38.0;
         cell.textLabel.text = reader.name;
         cell.imageView.image = [UIImage imageNamed:reader.name];
+        cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
         return cell;
     } else {
         Reader *reader = self.friends[indexPath.row];
         cell.imageView.layer.masksToBounds = YES;
-        cell.imageView.layer.cornerRadius = 36.0;
+        cell.imageView.layer.cornerRadius = 38.0;
         cell.textLabel.text = reader.name;
         cell.imageView.image = [UIImage imageNamed:reader.name];
+        cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
+
         return cell;
     }
 }

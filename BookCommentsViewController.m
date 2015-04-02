@@ -91,6 +91,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
     Comment *comment = self.commentsArray[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0];
     cell.textLabel.text = comment.comment;
     return cell;
 }
