@@ -7,7 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "Book.h"
 
 @interface BookCommentsViewController : ViewController
+
+@property NSManagedObjectContext *moc;
+@property Book *book;
 
 @end

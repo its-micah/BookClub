@@ -238,9 +238,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rXj-c6-7Wb" id="Dh9-3u-nfB">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="CBf-cP-aQf" kind="show" id="qvP-9O-8HP"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" misplaced="YES">
@@ -380,7 +377,7 @@
                     <navigationItem key="navigationItem" title="Friend" id="IFz-kl-wCT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BbE-4N-9bu">
                             <connections>
-                                <segue destination="M1h-Hf-9yg" kind="presentation" id="Nc7-8f-Ctr"/>
+                                <segue destination="M1h-Hf-9yg" kind="presentation" identifier="AddBookComment" id="Nc7-8f-Ctr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -398,7 +395,7 @@
         <!--Title-->
         <scene sceneID="Rxp-Mb-kmm">
             <objects>
-                <viewController id="CBf-cP-aQf" customClass="BookCommentsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookCommentsViewController" id="CBf-cP-aQf" customClass="BookCommentsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2d7-gi-b9b"/>
                         <viewControllerLayoutGuide type="bottom" id="D8w-kj-rJW"/>
