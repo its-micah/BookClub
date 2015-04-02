@@ -12,6 +12,4 @@
 @interface AddBookViewController : ViewController
 @property NSManagedObjectContext *moc;
 
-@property NSManagedObjectContext *moc;
-
 @end
