@@ -29,7 +29,9 @@
     self.bookTitleLabel.text = self.book.title;
     self.bookAuthorLabel.text = self.book.author;
     NSURL *imageURL = [NSURL URLWithString:self.book.image];
-    self.bookImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+
+    UIImage *imageFromFile = [Book readImageFromDisk:[NSString stringWithFormat:@"%@.png", self.book.title]];
+    self.bookImageView.image = imageFromFile;
 
     [self loadComments];
 }

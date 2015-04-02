@@ -32,6 +32,7 @@
 - (void)addComments:(NSSet *)values;
 - (void)removeComments:(NSSet *)values;
 + (UIImage *)readImageFromDisk:(NSString *)imageName;
++ (void)writeImageToDisk:(UIImage *)image withFileName:(NSString *)fileName;
 
 
 @end

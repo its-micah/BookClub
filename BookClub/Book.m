@@ -31,24 +31,24 @@
 }
 
 
-//#pragma mark - Image methods
-//
-//+ (void)writeImageToDisk:(UIImage *)image withFileName:(NSString *)fileName {
-//    NSLog(@"%f,%f",image.size.width,image.size.height);
-//
-//    NSLog(@"saving png");
-//    NSString *pngFilePath = [Book fullPathName:fileName];
-//    NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
-//    [data1 writeToFile:pngFilePath atomically:YES];
-//
-//    //    NSLog(@"saving jpeg");
-//    //    NSString *jpegFilePath = [NSString stringWithFormat:@"%@/test.jpeg",docDir];
-//    //    NSData *data2 = [NSData dataWithData:UIImageJPEGRepresentation(image, 1.0f)];//1.0f = 100% quality
-//    //    [data2 writeToFile:jpegFilePath atomically:YES];
-//
-//    NSLog(@"saving image done");
-//
-//}
+#pragma mark - Image methods
+
++ (void)writeImageToDisk:(UIImage *)image withFileName:(NSString *)fileName {
+    NSLog(@"%f,%f",image.size.width,image.size.height);
+
+    NSLog(@"saving png");
+    NSString *pngFilePath = [Book fullPathName:fileName];
+    NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
+    [data1 writeToFile:pngFilePath atomically:YES];
+
+    //    NSLog(@"saving jpeg");
+    //    NSString *jpegFilePath = [NSString stringWithFormat:@"%@/test.jpeg",docDir];
+    //    NSData *data2 = [NSData dataWithData:UIImageJPEGRepresentation(image, 1.0f)];//1.0f = 100% quality
+    //    [data2 writeToFile:jpegFilePath atomically:YES];
+
+    NSLog(@"saving image done");
+
+}
 
 + (UIImage *)readImageFromDisk:(NSString *)fileName {
 

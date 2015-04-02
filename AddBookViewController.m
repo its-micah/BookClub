@@ -10,7 +10,7 @@
 #import "Book.h"
 #import "Reader.h"
 
-@interface AddBookViewController () <UIImagePickerControllerDelegate>
+@interface AddBookViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property IBOutlet UITextField *titleTextField;
 @property IBOutlet UITextField *authorTextField;
 @property NSString *image;
@@ -35,9 +35,10 @@
     [self.reader addBooksObject:book];
 
     [self.moc save:nil];
-    [self dismissViewControllerAnimated:YES completion:^{
-        nil;
-    }];
+
+    [Book writeImageToDisk:self.imageView.image withFileName:[NSString stringWithFormat:@"%@.png", book.title]];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onSelectPictureButtonPressed:(id)sender {
@@ -59,9 +60,6 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
 
-    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-    NSString *chosenImageString = [refURL absoluteString];
-    self.image = chosenImageString;
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
