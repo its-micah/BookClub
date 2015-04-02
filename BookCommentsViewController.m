@@ -14,6 +14,9 @@
 
 @property NSArray *commentsArray;
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
+@property (weak, nonatomic) IBOutlet UILabel *bookTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookAuthorLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *bookImageView;
 
 @end
 
@@ -23,18 +26,24 @@
     [super viewDidLoad];
 
     self.commentsArray = [NSMutableArray new];
+    self.bookTitleLabel.text = self.book.title;
+    self.bookAuthorLabel.text = self.book.author;
+    NSURL *imageURL = [NSURL URLWithString:self.book.image];
+    self.bookImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+
     [self loadComments];
 }
 
 - (void)loadComments {
-//    if (self.raid) {
-//        self.adventurers = [self.raid.adventurers allObjects];
-//        [self.tableView reloadData];
-//        return;
-//    }
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Comment class])];
-    self.commentsArray = [self.moc executeFetchRequest:request error:nil];
+
+    self.commentsArray = [self.book.comments allObjects];
     [self.commentsTableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadComments];
+    [self.commentsTableView reloadData];
+    
 }
 
 
@@ -54,6 +63,7 @@
                                    UITextField *textField = commentController.textFields.firstObject;
                                    Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Comment class]) inManagedObjectContext:self.moc];
                                    comment.comment = textField.text;
+                                   [self.book addCommentsObject:comment];
                                    [self.moc save:nil];
                                    [self loadComments];
                                }];

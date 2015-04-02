@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 
 @interface Book : NSManagedObject
@@ -30,5 +31,7 @@
 - (void)removeCommentsObject:(NSManagedObject *)value;
 - (void)addComments:(NSSet *)values;
 - (void)removeComments:(NSSet *)values;
++ (UIImage *)readImageFromDisk:(NSString *)imageName;
+
 
 @end

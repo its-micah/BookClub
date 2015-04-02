@@ -59,6 +59,10 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
 
+    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    NSString *chosenImageString = [refURL absoluteString];
+    self.image = chosenImageString;
+
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }

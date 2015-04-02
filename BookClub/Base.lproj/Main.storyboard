@@ -552,6 +552,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookAuthorLabel" destination="Lsk-qD-Os8" id="Rn6-Wt-lRq"/>
+                        <outlet property="bookImageView" destination="YKH-6g-wcd" id="39b-8Q-aKH"/>
+                        <outlet property="bookTitleLabel" destination="cg7-8G-VTE" id="elS-h8-VOc"/>
                         <outlet property="commentsTableView" destination="cRm-eb-sjk" id="Y4t-ST-oY0"/>
                     </connections>
                 </viewController>
