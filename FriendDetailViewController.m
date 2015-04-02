@@ -39,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self load];
+    self.numberOfBooksLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.books.count];
     [self.booksTableView reloadData];
 }
 
