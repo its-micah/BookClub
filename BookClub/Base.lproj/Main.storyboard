@@ -317,7 +317,7 @@
                             <constraint firstItem="5fx-P6-NeX" firstAttribute="top" secondItem="3kv-CQ-cqZ" secondAttribute="bottom" constant="31" id="Kl3-8s-BQe"/>
                             <constraint firstItem="JzH-vy-Epa" firstAttribute="leading" secondItem="iL3-pB-erx" secondAttribute="leadingMargin" constant="18" id="TzD-To-3k5"/>
                             <constraint firstItem="VVh-oj-wyv" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="153" id="Xd2-Wk-7ai">
-                                <variation key="widthClass=compact" constant="188"/>
+                                <variation key="widthClass=compact" constant="221"/>
                             </constraint>
                             <constraint firstItem="3kv-CQ-cqZ" firstAttribute="top" secondItem="rwu-NW-BLO" secondAttribute="bottom" constant="60" id="acX-t9-Qm8">
                                 <variation key="widthClass=compact" constant="104"/>

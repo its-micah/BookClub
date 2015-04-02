@@ -45,6 +45,11 @@
     [self load];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self load];
+    [self.booksTableView reloadData];
+}
+
 - (void)load {
     self.books = [self.reader.books allObjects];
 //    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Book class])];
