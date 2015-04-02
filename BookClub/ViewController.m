@@ -85,11 +85,15 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
     if (self.isFiltered) {
         Reader *reader = self.searchResults[indexPath.row];
+        cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.layer.cornerRadius = 36.0;
         cell.textLabel.text = reader.name;
         cell.imageView.image = [UIImage imageNamed:reader.name];
         return cell;
     } else {
         Reader *reader = self.friends[indexPath.row];
+        cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.layer.cornerRadius = 36.0;
         cell.textLabel.text = reader.name;
         cell.imageView.image = [UIImage imageNamed:reader.name];
         return cell;
