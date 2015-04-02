@@ -9,10 +9,11 @@
 #import "AddBookViewController.h"
 #import "Book.h"
 
-@interface AddBookViewController ()
+@interface AddBookViewController () <UIImagePickerControllerDelegate>
 @property IBOutlet UITextField *titleTextField;
 @property IBOutlet UITextField *authorTextField;
 @property NSString *image;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
 @implementation AddBookViewController
@@ -31,13 +32,32 @@
     book.image = self.image;
     [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:^{
-
+        nil;
     }];
 }
-- (IBAction)onSetImageButtonPressed:(id)sender {
+
+- (IBAction)onSelectPictureButtonPressed:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:picker animated:YES completion:NULL];
 
 }
+- (IBAction)onCancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        nil;
+    }];
+}
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = chosenImage;
+
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
 /*
 #pragma mark - Navigation
 
