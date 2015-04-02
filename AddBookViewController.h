@@ -8,8 +8,10 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "Reader.h"
 
 @interface AddBookViewController : ViewController
 @property NSManagedObjectContext *moc;
+@property Reader *reader;
 
 @end

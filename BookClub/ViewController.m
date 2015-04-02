@@ -113,7 +113,6 @@
 }
 
 - (void)callFriendDetailViewControllerForReader:(Reader *)reader {
-
     FriendDetailViewController *friendVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailViewController"];
     friendVC.reader = reader;
     friendVC.moc = self.moc;

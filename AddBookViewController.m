@@ -8,6 +8,7 @@
 
 #import "AddBookViewController.h"
 #import "Book.h"
+#import "Reader.h"
 
 @interface AddBookViewController () <UIImagePickerControllerDelegate>
 @property IBOutlet UITextField *titleTextField;
@@ -30,6 +31,9 @@
     book.title = self.titleTextField.text;
     book.author = self.authorTextField.text;
     book.image = self.image;
+
+    [self.reader addBooksObject:book];
+
     [self.moc save:nil];
     [self dismissViewControllerAnimated:YES completion:^{
         nil;
