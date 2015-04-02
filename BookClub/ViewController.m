@@ -116,6 +116,7 @@
 
     FriendDetailViewController *friendVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailViewController"];
     friendVC.reader = reader;
+    friendVC.moc = self.moc;
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:friendVC];
     navVC.title = reader.name;
     navVC.navigationItem.rightBarButtonItem = UIBarButtonItemStylePlain;
