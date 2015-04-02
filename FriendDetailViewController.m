@@ -78,6 +78,9 @@
     BookCommentsViewController *bookVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BookCommentsViewController"];
     bookVC.book = book;
     bookVC.moc = self.moc;
+    bookVC.navigationItem.title = book.title;
+
+    [self showViewController:bookVC sender:nil];
 }
 
 

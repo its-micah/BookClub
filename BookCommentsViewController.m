@@ -8,8 +8,9 @@
 
 #import "BookCommentsViewController.h"
 #import "Book.h"
+#import "Comment.h"
 
-@interface BookCommentsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BookCommentsViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -22,10 +23,40 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)createCommentAlert:(id)sender {
+    UIAlertController *commentController = [UIAlertController alertControllerWithTitle:@"Add comment" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    [commentController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        nil;
+    }];
+
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:@"Okay"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action) {
+
+                                   UITextField *textField = commentController.textFields.firstObject;
+                                   Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Comment class]) inManagedObjectContext:self.moc];
+                                   comment.comment = textField.text;
+                                   [self.moc save:nil];
+                               }];
+
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action) {
+                                       nil;
+                                   }];
+
+    [commentController addAction:cancelAction];
+    [commentController addAction:okAction];
+
+    [self presentViewController:commentController animated:YES completion:^{
+        nil;
+    }];
+
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0; //xx.count;
 }
@@ -35,14 +66,6 @@
 
     return cell;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
