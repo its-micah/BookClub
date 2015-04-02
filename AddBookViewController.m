@@ -7,21 +7,38 @@
 //
 
 #import "AddBookViewController.h"
+#import "Book.h"
 
 @interface AddBookViewController ()
-
+@property IBOutlet UITextField *titleTextField;
+@property IBOutlet UITextField *authorTextField;
+@property NSString *image;
 @end
 
 @implementation AddBookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
+                                               inManagedObjectContext:self.moc];
+
+    book.title = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
+    book.author = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
+    book.image = @""; // ((UITextField *)alertcontroller.textFields.firstObject).text;
+    [self.moc save:nil];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onSaveButtonPressed:(id)sender {
+    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
+                                               inManagedObjectContext:self.moc];
+
+    book.title = self.titleTextField.text;
+    book.author = self.authorTextField.text;
+    book.image = self.image;
+    [self.moc save:nil];
+
 }
 
 /*

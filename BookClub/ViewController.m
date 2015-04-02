@@ -109,6 +109,11 @@
 }
 
 - (void)callFriendDetailViewControllerForReader:(Reader *)reader {
+
+    NSIndexPath *selectedIndexPath = [self.friendsTableView indexPathForSelectedRow];
+
+
+
     FriendDetailViewController *friendVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailViewController"];
     friendVC.reader = reader;
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:friendVC];
@@ -118,8 +123,10 @@
 
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowReaderListSegue"]) {
         ReaderListViewController *readerVC = segue.destinationViewController;
         readerVC.moc = self.moc;

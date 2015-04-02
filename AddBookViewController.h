@@ -9,5 +9,6 @@
 #import "ViewController.h"
 
 @interface AddBookViewController : ViewController
+@property NSManagedObjectContext *moc;
 
 @end
