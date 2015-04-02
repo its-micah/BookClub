@@ -20,14 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book"
-                                               inManagedObjectContext:self.moc];
-
-    book.title = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-    book.author = @"Unbroken"; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-    book.image = @""; // ((UITextField *)alertcontroller.textFields.firstObject).text;
-    [self.moc save:nil];
-
 }
 
 - (IBAction)onSaveButtonPressed:(id)sender {
@@ -38,6 +30,11 @@
     book.author = self.authorTextField.text;
     book.image = self.image;
     [self.moc save:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+
+    }];
+}
+- (IBAction)onSetImageButtonPressed:(id)sender {
 
 }
 
